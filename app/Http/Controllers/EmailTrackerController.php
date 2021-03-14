@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewLead;
 use Illuminate\Http\Request;
 use App\Models\Email;
 
@@ -51,5 +52,15 @@ class EmailTrackerController extends Controller
             'Expires'       => '0',
             'Cache-Control' => 'must-revalidate; post-check=0, pre-check=0',
         ]);
+    }
+
+    /**
+     * Preview Lead mailable.
+     *
+     * @return \Illuminate\Mail\Mailable
+     */
+    public function mailable()
+    {
+        return new NewLead(Email::inRandomOrder()->limit(1)->first());
     }
 }
