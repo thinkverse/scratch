@@ -16,7 +16,7 @@ class IbanController extends Controller
     public function __invoke(Request $request)
     {
         if (! $request->has('iban')) {
-            return 'Need IBAN to check';
+            return "Need IBAN to check, e.g. {$request->url()}?iban=BA511234567890DEF123";
         }
 
         return (Iban::validate($request->input('iban')))
