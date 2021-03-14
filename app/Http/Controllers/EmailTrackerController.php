@@ -7,6 +7,12 @@ use App\Models\Email;
 
 class EmailTrackerController extends Controller
 {
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         return view('emails.index', [
@@ -22,6 +28,13 @@ class EmailTrackerController extends Controller
         ]);
     }
 
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Email         $email
+     * @return \Illuminate\Http\Response
+     */
     public function show(Request $request, Email $email)
     {
         abort_unless($email->exists, 404);

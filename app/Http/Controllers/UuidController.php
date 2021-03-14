@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,7 +21,13 @@ class UuidController extends Controller
         return "Ordered UUID was created {$orderedDate}.\n<br/>UUID was created {$regularDate}.\n";
     }
 
-    function getDateFromUUID($uuid) {
+    /**
+     * Return the date from a UUID in a formatted manner.
+     *
+     * @param  string  $uuid
+     * @return string
+     */
+    function getDateFromUUID(string $uuid): string {
         $formatted_uuid = str_replace('-', '', $uuid);
 
         $timestamp = substr(hexdec(substr($formatted_uuid, 0, 12)), 0, 10);

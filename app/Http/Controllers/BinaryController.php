@@ -17,12 +17,24 @@ class BinaryController extends Controller
         return $this->toText('01001001 00100000 01100011 01100001 01101110 00100000 01100101 01110110 01100101 01101110 00100000 01100100 01101111 00100000 01100101 01101101 01101111 01101010 01101001 01110011 00100000 11110000 10011111 10010001 10001101');
     }
 
-    private function toText(string $binary)
+    /**
+     * Get a ASCII representation of a binary string.
+     *
+     * @param  string  $binary
+     * @return string
+     */
+    private function toText(string $binary): string
     {
         return array_reduce(str_split(preg_replace('/\s+/', '', $binary), 8), fn ($carry, $byte) => $carry .= chr(bindec($byte)), '');
     }
 
-    private function toBinary(string $string)
+    /**
+     * Get a binary representation of a string.
+     *
+     * @param  string  $string
+     * @return string
+     */
+    private function toBinary(string $string): string
     {
         return trim(array_reduce(str_split($string), fn ($carry, $char) => $carry .= ' ' . str_pad(decbin(ord($char)), 8, 0, STR_PAD_LEFT), ''));
     }
