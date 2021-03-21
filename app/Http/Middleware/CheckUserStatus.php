@@ -2,11 +2,25 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Closure;
 
 class CheckUserStatus
 {
+    /** @var StatefulGuard $guard */
+    protected StatefulGuard $guard;
+
+    /**
+     * Handle initialization of middleware.
+     *
+     * @param StatefulGuard $guard
+     */
+    public function __construct(StatefulGuard $guard)
+    {
+        $this->guard = $guard;
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -18,6 +32,8 @@ class CheckUserStatus
     public function handle(Request $request, Closure $next, string $column)
     {
         if (! $request->user()->{$column}) {
+            $this->guard->logout();
+
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
