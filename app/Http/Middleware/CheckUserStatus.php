@@ -2,9 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\SessionGuard;
 use Illuminate\Http\Request;
 use Closure;
-use Symfony\Component\HttpFoundation\Response;
 
 class CheckUserStatus
 {
@@ -18,7 +19,12 @@ class CheckUserStatus
      */
     public function handle(Request $request, Closure $next, string $column)
     {
-        abort_unless($request->user()->{$column}, Response::HTTP_UNAUTHORIZED);
+        if (! $request->user()->{$column}) {
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return redirect()->to('/')->with('status', __('auth.not-approved'));
+        }
 
         return $next($request);
     }
