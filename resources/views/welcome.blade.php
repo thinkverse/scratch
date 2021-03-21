@@ -1,6 +1,12 @@
 <x-guest-layout>
     <x-navbars.main />
     <div class="relative flex h-full justify-center bg-gray-100 items-top dark:bg-gray-900 sm:items-center sm:pt-0">
+        @if (session('status'))
+            <div class="absolute top-4 left-4 right-4 rounded-md p-4 bg-green-600 text-white">
+                {{ session('status') }}
+            </div>
+        @endif
+
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 text-6xl font-bold tracking-tight text-white font-heading sm:justify-start sm:pt-0">
                 laravel.dev
