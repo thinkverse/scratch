@@ -29,6 +29,7 @@ class User extends Authenticatable
         'password',
         'last_loggedin_at',
         'last_loggedin_from',
+        'approved',
     ];
 
     /**
@@ -51,6 +52,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_loggedin_at' => 'datetime',
+        'approved' => 'boolean',
     ];
 
     /**
@@ -61,4 +63,28 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Mark User as approved.
+     *
+     * @return  \App\Models\User
+     */
+    public function markAsApproved(): self
+    {
+        return tap($this)->update([
+            'approved' => true,
+        ]);
+    }
+
+    /**
+     * Mark User as unapproved.
+     *
+     * @return  \App\Models\User
+     */
+    public function markAsUnapproved(): self
+    {
+        return tap($this)->update([
+            'approved' => false,
+        ]);
+    }
 }
