@@ -23,7 +23,7 @@ class CheckUserStatus
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
-            return redirect()->to('/')->with('status', __('auth.not-approved'));
+            return redirect()->to('/')->with('status', __("auth.not-{$column}"));
         }
 
         return $next($request);
