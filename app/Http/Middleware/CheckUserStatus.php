@@ -2,8 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\SessionGuard;
 use Illuminate\Http\Request;
 use Closure;
 
