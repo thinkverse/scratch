@@ -21,7 +21,7 @@ Route::view('/', 'welcome')
 collect(['service', 'iban', 'uuid', 'binary'])
     ->each(fn ($route) => Route::get($route, 'App\\Http\\Controllers\\' . ucfirst($route) . 'Controller'::class));
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'user.is:approved'])->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/leads', [EmailTrackerController::class, 'index'])->name('leads');
     Route::get('/leads/mailable', [EmailTrackerController::class, 'mailable']);
