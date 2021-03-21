@@ -8,13 +8,13 @@ use Closure;
 
 class CheckUserStatus
 {
-    /** @var StatefulGuard $guard */
+    /** @var  StatefulGuard  $guard */
     protected StatefulGuard $guard;
 
     /**
      * Handle initialization of middleware.
      *
-     * @param StatefulGuard $guard
+     * @param  StatefulGuard  $guard
      */
     public function __construct(StatefulGuard $guard)
     {
