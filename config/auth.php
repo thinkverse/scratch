@@ -114,4 +114,17 @@ return [
 
     'password_timeout' => 10800,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Temporary Access
+    |--------------------------------------------------------------------------
+    |
+    | Here you may define the amount of days a user will have temporary access
+    | to your application, when elapsed the user is prompted to verfiy their
+    | email address. By default, the access lasts for 2 days, 48 hours.
+    |
+    */
+
+    'temporary_access' => 2,
+
 ];
