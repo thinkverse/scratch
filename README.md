@@ -4,7 +4,7 @@ This repository is where [thinkverse](https://github.com/thinkverse) tests ideas
 
 ## Contributing
 
-Thank you for considering contributing to this repository! Please submit your contribution in a PR with a proper description.
+Thank you for considering contributing to this repository! Please submit your contribution in a PR to the `develop` branch with a proper description.
 
 ## Security Vulnerabilities
 
