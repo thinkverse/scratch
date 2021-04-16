@@ -1,0 +1,27 @@
+{
+    "name": "thinkverse/laravel-package-demo",
+    "description": "Laravel Package Demo",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "thinkverse",
+            "email": "hallberg.kim@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Thinkverse\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "^8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Thinkverse\\DemoServiceProvider"
+            ]
+        }
+    }
+}
