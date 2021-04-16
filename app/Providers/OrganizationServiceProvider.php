@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class OrganizationServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,8 @@ class OrganizationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom('database/migrations/organization');
-        $this->loadRoutesFrom(base_path('routes/organization/web.php'));
+
+        Route::middleware('web')
+            ->group(base_path('routes/organization/web.php'));
     }
 }
