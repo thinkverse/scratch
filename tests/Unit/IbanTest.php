@@ -2,8 +2,6 @@
 
 use App\Support\Iban;
 
-use function PHPUnit\Framework\assertEquals;
-
-test('Iban::validate', function ($iban, $actual) {
-    assertEquals(Iban::validate($iban), $actual);
+it('can validate IBAN numbers', function ($iban, $expected) {
+    expect(Iban::validate($iban))->toBe($expected);
 })->with('ibans');
