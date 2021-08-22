@@ -36,7 +36,7 @@ return [
     */
 
     'storage' => [
-        'disk' => 'local',
+        'disk' => 'public',
     ],
 
     /*
