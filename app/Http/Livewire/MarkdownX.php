@@ -109,7 +109,7 @@ class MarkdownX extends Component
 
             // Make sure the filename does not exist, if it does make sure to add a number to the end 1, 2, 3, etc...
             while (Storage::disk(config('markdownx.storage.disk'))->exists($path.$filename.'.'.$extension)) {
-                $filename = str_slug($original_filename).(string) ($filename_counter++);
+                $filename = Str::slug($original_filename) . (string) ($filename_counter++);
             }
 
             $fullPath = $path.$filename.'.'.$extension;
