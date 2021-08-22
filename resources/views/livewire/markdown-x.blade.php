@@ -1101,7 +1101,7 @@
                         this.placeholder = false;
                     }
 
-                    if ((which === 191 && previousChar === "")) {
+                    if ((which === 55 && previousChar === "")) {
                         this.toggleSuggestionDropdown();
                     } else if (this.suggestionDropdown) {
                         switch (which) {
