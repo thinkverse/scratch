@@ -18,6 +18,8 @@ Route::view('/', 'welcome')
     ->middleware('guest')
     ->name('welcome');
 
+Route::view('/markdownx', 'markdownx');
+
 collect(['service', 'iban', 'uuid', 'binary'])
     ->each(fn ($route) => Route::get($route, 'App\\Http\\Controllers\\' . ucfirst($route) . 'Controller'::class));
 
