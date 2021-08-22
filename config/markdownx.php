@@ -36,7 +36,7 @@ return [
     */
 
     'storage' => [
-        'disk' => 's3',
+        'disk' => 'local',
     ],
 
     /*
@@ -61,11 +61,11 @@ return [
         "bulleted_list",
         "numbered_list",
         "quote",
-        //"giphy",
-        // "codepen",
-        // "codesandbox",
-        // "youtube",
-        // "buy_me_a_coffee"
+        "giphy",
+        "codepen",
+        "codesandbox",
+        "youtube",
+        "buy_me_a_coffee"
     ],
 
     'integrations' => [
