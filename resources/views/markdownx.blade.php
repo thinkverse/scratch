@@ -7,7 +7,7 @@
         @endif
 
         <div class="h-full w-full max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <livewire:markdown-x />
+            <livewire:markdown-x id="editor" />
         </div>
     </div>
 

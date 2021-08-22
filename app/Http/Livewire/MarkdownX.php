@@ -39,10 +39,10 @@ class MarkdownX extends Component
      * @param string $key
      * @return void
      */
-    public function mount($content = '', $name = '', $key = ''){
+    public function mount($content = '', $name = '', $id = ''){
         $this->content = $content;
         $this->name = $name;
-        $this->key = $key;
+        $this->key = $id;
         $this->updateContentPreview();
     }
 
