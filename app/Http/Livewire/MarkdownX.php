@@ -140,7 +140,7 @@ class MarkdownX extends Component
                 'name' => $payload->name
             ]);
 
-        } catch(Exception $e){
+        } catch(\Exception $e){
             $this->dispatchBrowserEvent('markdown-x-image-uploaded', [
                 'status' => 400,
                 'message' => 'Error when trying to upload.',
